@@ -47,7 +47,6 @@ def tokenFactory(dsid, mmeAuthToken):
         'Content-Type': 'application/xml',
         'X-MMe-Client-Info': '<iPhone6,1> <iPhone OS;9.3.2;13F69> <com.apple.AppleAccount/1.0 (com.apple.Preferences/1.0)>'
     }
-
     request = urllib2.Request(url, None, headers)
     response = None
     try:
@@ -71,7 +70,6 @@ def dsidFactory(uname, passwd): #This can also be a regular DSID with AuthToken
         'Authorization': 'Basic %s' % creds,
         'Content-Type': 'application/xml',
     }
-
     request = urllib2.Request(url, None, headers)
     response = None
     try:
@@ -235,7 +233,6 @@ if __name__ == '__main__':
         state = raw_input("State: ")
         (latitude, longitude) = convertAddress(street, city, state)
         print "Got GPS coordinates <%s:%s> for %s, %s, %s" % (latitude, longitude, street, city, state)
-
     while True:
         try:
             serviceSelect = int(raw_input("Spoof FMF, FMI or both: [0, 1, 2] "))
@@ -245,7 +242,6 @@ if __name__ == '__main__':
         except ValueError:
             print "Please enter 0, 1 or 2 (FMF, FMI or both, respectively)"
             continue
-
     try:
         mmeFMFAppToken, mmeFMIToken = tokenFactory(DSID, authToken) #Get tokens by using token
     except Exception as e:
@@ -261,11 +257,9 @@ if __name__ == '__main__':
             UDID = UDID[0]
         else:
             UDID = raw_input("Manually enter UDID: ")
-
     else:
         print "Could not fetch any UDID."
         UDID = raw_input("Manually enter UDID: ")
-
     try:
         while True:
             if serviceSelect == 0 or serviceSelect == 1 or serviceSelect == 2:
