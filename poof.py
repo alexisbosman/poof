@@ -151,7 +151,7 @@ def fmiSetLoc(DSID, mmeFMIToken, UDID, latitude, longitude):
             print e
             raise HTTPError
     return "Successfully changed FindMyiPhone location to <%s;%s>." % (latitude, longitude)
-    
+
 def fmfSetLoc(DSID, mmeFMFAppToken, UDID, latitude, longitude): #UDID has to be determined manually as it isn't stored by Apple
     mmeFMFAppTokenEncoded = base64.b64encode("%s:%s" % (DSID, mmeFMFAppToken))
     url = 'https://p04-fmfmobile.icloud.com/fmipservice/friends/%s/%s/myLocationChanged' % (DSID, UDID)
