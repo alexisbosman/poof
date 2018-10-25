@@ -1,4 +1,3 @@
-import os
 import urllib
 import urllib2
 import getpass
@@ -200,7 +199,6 @@ def fmfSetLoc(DSID, mmeFMFAppToken, UDID, latitude, longitude): #UDID has to be 
     return "Successfully changed FindMyFriends location to <%s;%s>." % (latitude, longitude)
 
 if __name__ == '__main__':
-    os.system('cls' if os.name == 'nt' else 'clear') #Clear console window
     user = raw_input("Apple ID: ")
     try: #If DSID fetched, convert to int
         int(user)
